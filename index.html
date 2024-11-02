@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="inputs">
+    <input type="text" class="inputer" placeholder="Name*" id="name">
+    <input type="text" class="inputer" placeholder="Phone number*" id="number">
+    <input type="email" class="inputer" placeholder="Email" id="email">
+    <input type="text" class="inputer" placeholder="Address" id="address">
+    <button class="butter" onclick="add()">Add</button>
+    </div>
+
+<div class="contactContainer" id="container">
+    <div class="cont">
+        <h1>Name</h1>
+        <input type="text" id="edit-name" placeholder="Edit name" class="edit-input" style="display: none;">
+        <h2>1234567890</h2>
+        <h2>email@email.com</h2>
+        <h2>123 fakestreet</h2>
+        <button onclick="updateUserInfo()">Edit info</button>
+    </div>
+</div>
+
+
+<script src="./index.js"></script>
+</body>
+</html>
