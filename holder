@@ -1,0 +1,34 @@
+    
+    //saving just in case
+    
+    <div class="cont">
+        <h1>Name</h1>
+        <input type="text" id="edit-name" placeholder="Edit name" class="edit-input" style="display: none;">
+        <h2>1234567890</h2>
+        <h2>email@email.com</h2>
+        <h2>123 fakestreet</h2>
+        <button onclick="updateUserInfo()" class="edit-button">Edit info</button>
+        <button onclick="saveUserInfo()" class="save-button" style="display: none;">Save info</button>
+    </div>
+
+
+
+    container.innerHTML +=`
+    <div class="cont">
+    <h1>${nameValue}</h1>
+    <input type="text" id="edit-name" placeholder="Edit name" class="edit-input" style="display: none;">
+    <h2>${numberValue}</h2>
+    <h2>${emailValue}</h2>
+    <h2>${addressValue}</h2>
+    <button onclick="updateUserInfo()" class="edit-button">Edit info</button>
+    <button onclick="saveUserInfo()" class="save-button" style="display: none;">Save info</button>
+    <button onclick="deleteUserInfo()" class="delete-button">Delete</button>
+    </div>
+`
+
+    let data=[nameValue,numberValue,emailValue,address]
+       for(let i = 0; i < data.length; i++) {
+        let map = data[i]
+       let contactinfo = new Contact(map["name"],map["number"],map["email"],map["address"])
+        contacts.push(contactinfo)
+    }

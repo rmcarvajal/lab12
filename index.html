@@ -17,16 +17,19 @@
 
 <div class="contactContainer" id="container">
     <div class="cont">
-        <h1>Name</h1>
+        <h1>name</h1>
         <input type="text" id="edit-name" placeholder="Edit name" class="edit-input" style="display: none;">
-        <h2>1234567890</h2>
-        <h2>email@email.com</h2>
-        <h2>123 fakestreet</h2>
-        <button onclick="updateUserInfo()">Edit info</button>
-    </div>
+        <h2>number</h2>
+        <h2>email</h2>
+        <h2>address</h2>
+        <button onclick="updateUserInfo()" class="edit-button">Edit info</button>
+        <button onclick="saveUserInfo()" class="save-button" style="display: none;">Save info</button>
+        <button onclick="deleteUserInfo()" class="delete-button">Delete</button>
+        </div>
 </div>
 
 
 <script src="./index.js"></script>
+<script src="./contact.js"></script>
 </body>
 </html>

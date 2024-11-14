@@ -1,6 +1,6 @@
 const container = document.getElementById("container")
 
-
+let contacts = []
 
 function add() {
 
@@ -26,22 +26,24 @@ function add() {
         alert("Please add number")
     }
     else{
-        console.log(nameValue)
-        console.log(numberValue)
-        console.log(emailValue)
-        console.log(addressValue)
+        
+    let contactinfo =[nameValue,numberValue,emailValue,addressValue]
+    contacts.push(contactinfo)
 
-        container.innerHTML +=`
-            <div class="cont">
-            <h1>${nameValue}</h1>
-            <h2>${numberValue}</h2>
-            <h2>${emailValue}</h2>
-            <h2>${addressValue}</h2>
-            </div>
-        `
+        let json = JSON.stringify(contacts)
+        localStorage.setItem("contactinfo", json)
+
         clear()
     }
 
+}
+
+
+
+function renderContacts(){
+    let contactString = localStorage.getItem("contactinfo")
+    let contactMap = JSON.parse(contactString)
+    console.log(contactMap)
 }
 
 function clear(){
@@ -49,30 +51,35 @@ document.getElementById("name").value=""
 document.getElementById("number").value=""
 document.getElementById("email").value=""
 document.getElementById("address").value=""
+console.log(contacts)
+}
+
+function deleteUserInfo(){
 
 }
 
-// Función para actualizar los datos del usuario
 function updateUserInfo() {
-    const newName = document.getElementById("edit-name").value;
+    const newNameInput = document.getElementById("edit-name").value;
+    const newNameValue = newNameInput.value
 
-    if (newName) userData.name = newName;
 
-    // Ocultar los campos de edición después de la actualización
-    document.querySelectorAll('.edit-input').forEach(input => input.style.display = 'none');
-}
-
-function toggleSection(section) {
-    const sectionContent = document.querySelector(`.${section}`);
-    if (section === 'settings') {
-        document.querySelectorAll('.edit-input').forEach(input => {
-            input.style.display = input.style.display === 'none' ? 'block' : 'none';
-        });
-    } else {
-        if (sectionContent.style.display === "none" || !sectionContent.style.display) {
-            sectionContent.style.display = "block";
-        } else {
-            sectionContent.style.display = "none";
-        }
+    document.querySelectorAll('.edit-input').forEach(input => input.style.display = 'block');
+    document.querySelectorAll('.edit-button').forEach(input => input.style.display = 'none');
+    document.querySelectorAll('.save-button').forEach(input => input.style.display = 'block');
+    if(newNameValue === ""){
+        alert("Please add name")
     }
+    else{
+        return newNameValue
+    }
+
 }
+
+
+
+function saveUserInfo(){
+    var test = updateUserInfo()
+    console.log(test)
+}
+
+renderContacts()
